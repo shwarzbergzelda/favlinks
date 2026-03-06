@@ -7,7 +7,7 @@ function LinkContainer() {
     const [favLinks, setFavLinks] = useState([])
 
     const handleRemove = (index) => {
-
+        setFavLinks(prevFavLinks => prevFavLinks.splice(index, index + 1))
     }
 
     const handleSubmit = (favLink) => {
