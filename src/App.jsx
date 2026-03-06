@@ -1,7 +1,9 @@
+import LinkContainer from "./components/LinkContainer"
+
 function App() {
   return (
     <div>
-      This is our new App component
+      <LinkContainer />
     </div>
   )
 }
