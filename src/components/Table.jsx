@@ -12,19 +12,34 @@ function TableHeader() {
     )
 }
 
-function TableBody() {
+const TableBody = (props) => {
     /* responsible for rendering the data for our table */
+    const rows = props.linkData.map((row, index) => {
+        return (
+            <tr key={index}>
+                <td>{row.name}</td>
+                <td>
+                    <a href={row.URL}>{row.URL}</a>
+                </td>
+                <td>
+                    <button onClick={() => props.removeLink(index)}>Delete</button>
+                </td>
+            </tr>
+        )
+    })
 
-    return (
-        <tbody></tbody>
-    )
+    return <tbody>{rows}</tbody>
 }
 
-function Table() {
+function Table(props) {
+
     return (
         <table>
             <TableHeader />
-            <TableBody />
+            <TableBody
+                linkData={props.linkData}
+                removeLink={props.handleRemove}
+            />
         </table>
     )
 }
